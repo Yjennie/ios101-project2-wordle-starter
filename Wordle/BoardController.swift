@@ -63,6 +63,7 @@ class BoardController: NSObject,
   private func applyNumLettersSettings(with settings: [String: Any]) {
     // START YOUR CODE HERE
     // ...
+    numItemsPerRow = settings[kNumLettersKey] as! Int
     // END YOUR CODE HERE
   }
   
@@ -75,6 +76,7 @@ class BoardController: NSObject,
   private func applyNumGuessesSettings(with settings: [String: Any]) {
     // START YOUR CODE HERE
     // ...
+    numRows = settings[kNumGuessesKey] as! Int
     // END YOUR CODE HERE
   }
   
@@ -88,6 +90,8 @@ class BoardController: NSObject,
   private func applyThemeSettings(with settings: [String: Any]) {
     // START YOUR CODE HERE
     // ...
+    goalWord = WordGenerator.generateGoalWord(with: WordTheme(rawValue: settings[kWordThemeKey] as! String)!
+    )
     // END YOUR CODE HERE
   }
   
@@ -98,6 +102,9 @@ class BoardController: NSObject,
   private func applyIsAlienWordleSettings(with settings: [String: Any]) {
     // START YOUR CODE HERE
     // ...
+    if let isAlienWordleValue = settings[kIsAlienWordleKey] as? Bool {
+                  isAlienWordle = isAlienWordleValue
+    }
     // START YOUR CODE HERE
   }
 }
